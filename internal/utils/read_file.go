@@ -7,12 +7,20 @@ import (
 	"os"
 )
 
-func ReadFile(taskName string) []string {
-	file, err := os.Open(fmt.Sprintf("./internal/day%s/input.txt", taskName))
+func ReadFile(taskName string, useExample bool) []string {
+	var filePath string
+
+	if useExample {
+		filePath = "/internal/day%s/example.txt"
+	} else {
+		filePath = "/internal/day%s/input.txt"
+	}
+
+	file, err := os.Open(fmt.Sprintf("."+filePath, taskName))
 
 	if err != nil {
 		// For debug mode
-		file, err = os.Open(fmt.Sprintf("../internal/day%s/input.txt", taskName))
+		file, err = os.Open(fmt.Sprintf(".."+filePath, taskName))
 
 		if err != nil {
 			log.Fatal(err)
