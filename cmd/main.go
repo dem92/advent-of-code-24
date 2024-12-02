@@ -2,6 +2,7 @@ package main
 
 import (
 	"aoc24/internal/day1"
+	"aoc24/internal/day2"
 	"log"
 	"os"
 )
@@ -19,6 +20,10 @@ func main() {
 		day1.Day1a()
 	case "1b":
 		day1.Day1b()
+	case "2a":
+		day2.Day2a()
+	case "2b":
+		day2.Day2b()
 	default:
 		log.Fatal("Failed to match task arg with function")
 	}
