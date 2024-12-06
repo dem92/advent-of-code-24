@@ -5,22 +5,6 @@ import (
 	"log"
 )
 
-type direction struct {
-	dir string
-	x   int
-	y   int
-}
-
-var directions = []direction{
-	{dir: "N", x: 0, y: -1},
-	{dir: "NE", x: 1, y: -1},
-	{dir: "E", x: 1, y: 0},
-	{dir: "SE", x: 1, y: 1},
-	{dir: "S", x: 0, y: 1},
-	{dir: "SW", x: -1, y: 1},
-	{dir: "W", x: -1, y: 0},
-	{dir: "NW", x: -1, y: -1},
-}
 var xmasCounter = 0
 var xmas = []rune{'X', 'M', 'A', 'S'}
 var lineCountA = 0
@@ -39,7 +23,7 @@ func Day4a() {
 				continue
 			}
 
-			for _, dir := range directions {
+			for _, dir := range utils.Directions {
 				checkForXmas(fileContent, 1, x, y, dir)
 			}
 		}
@@ -48,9 +32,9 @@ func Day4a() {
 	log.Printf("Total: %d", xmasCounter)
 }
 
-func checkForXmas(fileContent []string, xmasIndex, x, y int, dir direction) {
-	newX := x + dir.x
-	newY := y + dir.y
+func checkForXmas(fileContent []string, xmasIndex, x, y int, dir utils.Direction) {
+	newX := x + dir.X
+	newY := y + dir.Y
 
 	if newX >= columnCountA || newX < 0 || newY >= lineCountA || newY < 0 {
 		return
