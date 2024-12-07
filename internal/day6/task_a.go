@@ -38,6 +38,8 @@ func findGuard(areaMap [][]rune) position {
 }
 
 func moveGuard(areaMap [][]rune, guardPosition position, direction utils.Direction, squaresEntered int) int {
+	// utils.PrintCharMap(areaMap)
+
 	nextX := guardPosition.X + direction.X
 	nextY := guardPosition.Y + direction.Y
 
