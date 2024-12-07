@@ -2,7 +2,7 @@ package utils
 
 import "strings"
 
-func findNumbers(line string, separator string) []int {
+func FindNumbers(line string, separator string) []int {
 	stringNums := strings.Split(line, separator)
 	numbers := []int{}
 
